@@ -1,0 +1,17 @@
+/Users/fernandovega/Documents/calendar-series-backend/Aplication/bin/Debug/net7.0/Aplication.deps.json
+/Users/fernandovega/Documents/calendar-series-backend/Aplication/bin/Debug/net7.0/Aplication.dll
+/Users/fernandovega/Documents/calendar-series-backend/Aplication/bin/Debug/net7.0/Aplication.pdb
+/Users/fernandovega/Documents/calendar-series-backend/Aplication/obj/Debug/net7.0/Aplication.csproj.AssemblyReference.cache
+/Users/fernandovega/Documents/calendar-series-backend/Aplication/obj/Debug/net7.0/Aplication.GeneratedMSBuildEditorConfig.editorconfig
+/Users/fernandovega/Documents/calendar-series-backend/Aplication/obj/Debug/net7.0/Aplication.AssemblyInfoInputs.cache
+/Users/fernandovega/Documents/calendar-series-backend/Aplication/obj/Debug/net7.0/Aplication.AssemblyInfo.cs
+/Users/fernandovega/Documents/calendar-series-backend/Aplication/obj/Debug/net7.0/Aplication.csproj.CoreCompileInputs.cache
+/Users/fernandovega/Documents/calendar-series-backend/Aplication/obj/Debug/net7.0/Aplication.dll
+/Users/fernandovega/Documents/calendar-series-backend/Aplication/obj/Debug/net7.0/refint/Aplication.dll
+/Users/fernandovega/Documents/calendar-series-backend/Aplication/obj/Debug/net7.0/Aplication.pdb
+/Users/fernandovega/Documents/calendar-series-backend/Aplication/obj/Debug/net7.0/ref/Aplication.dll
+/Users/fernandovega/Documents/calendar-series-backend/Aplication/bin/Debug/net7.0/Domain.dll
+/Users/fernandovega/Documents/calendar-series-backend/Aplication/bin/Debug/net7.0/Infrastructure.dll
+/Users/fernandovega/Documents/calendar-series-backend/Aplication/bin/Debug/net7.0/Infrastructure.pdb
+/Users/fernandovega/Documents/calendar-series-backend/Aplication/bin/Debug/net7.0/Domain.pdb
+/Users/fernandovega/Documents/calendar-series-backend/Aplication/obj/Debug/net7.0/Aplication.csproj.CopyComplete
