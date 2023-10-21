@@ -1,0 +1,30 @@
+# Carpetas generadas por el proceso de compilación
+bin/
+obj/
+
+Presentacion/obj/
+
+
+# Archivos de usuario generados
+*.user
+*.suo
+*.sln.docstates
+
+# Carpetas de caché
+[Tt]emp/
+[Vv]isual[Tt]udioTestResults/
+
+# Archivos de registro
+*.log
+
+# Visual Studio 2019
+.vs2019/
+
+# Rider
+.idea/
+
+# Carpeta NuGet
+packages/
+
+# Carpeta de publicación
+_PublishedWebsites/
