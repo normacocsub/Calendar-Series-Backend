@@ -26,8 +26,8 @@ public class AgregarSerieHandler : IRequestHandler<AgregarSerieCommand, int>
     {
         var nuevaSerie = new Serie { Nombre = request.Nombre, UrlImagen = "", Emision = request.Emision,
          Capitulos = request.Capitulos, CapitulosVistos = request.CapitulosVistos, DondeVer = request.DondeVer,
-          Observaciones = request.Observaciones};
-
+          Observaciones = request.Observaciones, FechaEmision = request.FechaEmision};
+        nuevaSerie.CalcularFechasEmision();
         var serieReponse =  await _serieRepository.AgregarSerie(nuevaSerie);
 
         return serieReponse.Id;

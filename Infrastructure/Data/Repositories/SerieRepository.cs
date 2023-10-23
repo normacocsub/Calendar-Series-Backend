@@ -24,4 +24,10 @@ public class SerieRepository : ISerieRepository
         await _context.SaveChangesAsync();
         return serie;
     }
+
+    public async Task<List<Serie>> ConsultarSeries()
+    {
+        var seriesResponse = await _context.Series.ToListAsync();
+        return seriesResponse;
+    }
 }

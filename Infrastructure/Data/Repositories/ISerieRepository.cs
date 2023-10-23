@@ -10,4 +10,5 @@ namespace Infrastructure.Data.Repositories;
 public interface ISerieRepository
 {
     Task<Serie> AgregarSerie(Serie serie);
+    Task<List<Serie>> ConsultarSeries();
 }

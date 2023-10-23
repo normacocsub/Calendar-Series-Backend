@@ -14,7 +14,7 @@
 ``` "DefaultConnection": "Data Source=sql-server,1433;Initial Catalog=CalendarSeries;User Id=sa;Password=Prueba123*;TrustServerCertificate=true" ```
 
 
-# Create Migration Databasek
+# Create Migration Database
 
 Ir a Infrastructure en la terminal y ejecutar el siguiente comando en caso de no existir la migración
 

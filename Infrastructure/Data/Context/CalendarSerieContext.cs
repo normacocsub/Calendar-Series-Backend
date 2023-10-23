@@ -21,7 +21,7 @@ namespace Infrastructure.Data.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new SerieConfiguration());
-
+            modelBuilder.ApplyConfiguration(new EmisionSerieConfiguration());
 
             base.OnModelCreating(modelBuilder);
         }

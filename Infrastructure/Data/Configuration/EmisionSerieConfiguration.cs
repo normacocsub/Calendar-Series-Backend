@@ -7,19 +7,15 @@ using System.Text;
 using System.Threading.Tasks;
 using Domain.Entity;
 
+
 namespace Infrastructure.Data.Configurations;
 
-public class SerieConfiguration : IEntityTypeConfiguration<Serie>
+public class EmisionSerieConfiguration : IEntityTypeConfiguration<EmisionSerie> 
 {
-    public void Configure(EntityTypeBuilder<Serie> builder)
+    public void Configure(EntityTypeBuilder<EmisionSerie> builder)
     {
-        builder.ToTable("Serie");
-        builder.HasKey(s => s.Id);
-
-        builder
-            .HasMany(s => s.EmisionSerie) 
-            .WithOne(e => e.Serie) 
-            .HasForeignKey(e => e.SerieId);
+        builder.ToTable("EmisionSerie");
+        builder.HasKey(e => e.Id);
         //builder.Property(p => p.Nombre).HasMaxLength(100).IsRequired();
     }
 }
