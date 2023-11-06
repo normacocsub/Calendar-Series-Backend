@@ -31,3 +31,5 @@ _PublishedWebsites/
 
 # Sonar
 .sonarqube/
+Infrastructure/Credentials/credentials.json
+Presentation/Credentials/credentials.json
