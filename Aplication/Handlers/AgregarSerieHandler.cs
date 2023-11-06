@@ -7,16 +7,19 @@ using System.Threading.Tasks;
 using Aplication.Commands;
 using Domain.Entity;
 using Infrastructure.Data.Repositories;
+using Infrastructure.ExternalServices;
 
 namespace Aplication.Handlers;
 
 public class AgregarSerieHandler : IRequestHandler<AgregarSerieCommand, int>
 {
-    private readonly ISerieRepository _serieRepository;
+    private readonly ISerieRepository _seriesRepository;
+    private readonly IGoogleDriveService _driveService;
 
-    public AgregarSerieHandler(ISerieRepository serieRepository)
+    public AgregarSerieHandler(ISerieRepository seriesRepository, IGoogleDriveService driveService)
     {
-        _serieRepository = serieRepository;
+        _seriesRepository = seriesRepository;
+        _driveService = driveService;
     }
 
     public async Task<int> Handle(
@@ -24,12 +27,19 @@ public class AgregarSerieHandler : IRequestHandler<AgregarSerieCommand, int>
         CancellationToken cancellationToken
     )
     {
-        var nuevaSerie = new Serie { Nombre = request.Nombre, UrlImagen = "", Emision = request.Emision,
+        var newSerie = new Serie { Nombre = request.Nombre, UrlImagen = "", Emision = request.Emision,
          Capitulos = request.Capitulos, CapitulosVistos = request.CapitulosVistos, DondeVer = request.DondeVer,
           Observaciones = request.Observaciones, FechaEmision = request.FechaEmision};
-        nuevaSerie.CalcularFechasEmision();
-        var serieReponse =  await _serieRepository.AgregarSerie(nuevaSerie);
+        newSerie.CalcularFechasEmision();
+        if (request.Imagen != null && request.Imagen.Length > 0)
+        {
+            await using var stream = request.Imagen.OpenReadStream();
+            newSerie.UrlImagen = await _driveService.UploadImage(stream, request.Nombre, "1dqOFH-hA2_NReZdWocWUCTJ0ApiLD7kd");
+            var serieReponse =  await _seriesRepository.AgregarSerie(newSerie);
+            return serieReponse.Id;
+        }
 
-        return serieReponse.Id;
+
+        return 0;
     }
 }

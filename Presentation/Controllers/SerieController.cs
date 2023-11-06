@@ -19,7 +19,7 @@ public class SerieController : ControllerBase
     }
     // configurar el tema de las credenciales para subir imagenes 
     [HttpPost]
-    public async Task<IActionResult> AgregarSerie([FromBody] AgregarSerieCommand command)
+    public async Task<IActionResult> AgregarSerie([FromForm] AgregarSerieCommand command)
     {
         var serieId = await _mediator.Send(command);
         return Ok(serieId);

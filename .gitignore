@@ -28,3 +28,6 @@ packages/
 
 # Carpeta de publicación
 _PublishedWebsites/
+
+# Sonar
+.sonarqube/

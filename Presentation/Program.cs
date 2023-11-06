@@ -1,8 +1,8 @@
 using Infrastructure.Data.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Infrastructure.Data.Context;
-using Aplication.Handlers; //eliminar referencia luego
-using MediatR;
+using Aplication.Handlers;
+using Infrastructure.ExternalServices;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,6 +23,8 @@ builder.Services.AddMediatR(cfg =>
 });
 
 builder.Services.AddScoped<ISerieRepository, SerieRepository>();
+builder.Services.AddScoped<IGoogleDriveService, GoogleDriveServices>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

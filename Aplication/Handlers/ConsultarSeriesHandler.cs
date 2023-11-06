@@ -39,7 +39,9 @@ public class ConsultarSeriesHandler : IRequestHandler<ObtenerSeriesQuery, List<S
             Capitulos = serie.Capitulos,
             CapitulosVistos = serie.CapitulosVistos,
             DondeVer = serie.DondeVer,
-            Observaciones = serie.Observaciones
+            Observaciones = serie.Observaciones,
+            UrlImagen = serie.UrlImagen,
+            FechaEmision = serie.FechaEmision
         };
     }
 }
