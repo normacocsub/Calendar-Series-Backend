@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using Infrastructure.Data.Context;
 using Aplication.Handlers;
 using Infrastructure.ExternalServices;
+using Infrastructure.Identity;
+using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +17,11 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<CalendarSerieContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
+    .AddEntityFrameworkStores<CalendarSerieContext>()
+    .AddDefaultTokenProviders();
+
 
 builder.Services.AddMediatR(cfg => 
 {
@@ -41,3 +48,4 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
