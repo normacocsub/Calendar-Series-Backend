@@ -7,23 +7,24 @@ using System.Threading.Tasks;
 using Aplication.Commands;
 using Domain.Entity;
 using Infrastructure.Data.Repositories;
+using Infrastructure.Data.Repositories.Interfaces;
 using Infrastructure.ExternalServices;
 
 namespace Aplication.Handlers;
 
-public class AgregarSerieHandler : IRequestHandler<AgregarSerieCommand, int>
+public class AddSerieHandler : IRequestHandler<AddSerieCommand, int>
 {
     private readonly ISerieRepository _seriesRepository;
     private readonly IGoogleDriveService _driveService;
 
-    public AgregarSerieHandler(ISerieRepository seriesRepository, IGoogleDriveService driveService)
+    public AddSerieHandler(ISerieRepository seriesRepository, IGoogleDriveService driveService)
     {
         _seriesRepository = seriesRepository;
         _driveService = driveService;
     }
 
     public async Task<int> Handle(
-        AgregarSerieCommand request,
+        AddSerieCommand request,
         CancellationToken cancellationToken
     )
     {

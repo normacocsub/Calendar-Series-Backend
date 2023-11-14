@@ -8,4 +8,4 @@ using Aplication.DTOs;
 
 namespace Aplication.Querys;
 
-public record ObtenerSeriesQuery() : IRequest<List<SerieDTO>>;
+public record GetSeriesQuery() : IRequest<List<SerieDTO>>;

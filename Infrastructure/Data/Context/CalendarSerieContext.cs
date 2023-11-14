@@ -27,7 +27,9 @@ namespace Infrastructure.Data.Context
         private void InitializeRolesAndUsers(ModelBuilder modelBuilder)
         {
             var adminRole = new IdentityRole("Admin");
+            adminRole.NormalizedName = "ADMIN";
             var userRole = new IdentityRole("Usuario");
+            userRole.NormalizedName = "USUARIO";
 
             modelBuilder.Entity<IdentityRole>().HasData(
                 adminRole,

@@ -2,12 +2,14 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Aplication.Querys;
 using Aplication.Commands;
+using Microsoft.AspNetCore.Authorization;
 
 
 namespace Controllers;
 
 [Route("api/[Controller]")]
 [ApiController]
+[Authorize(Policy = "UserOnly")]
 
 public class SerieController : ControllerBase 
 {
@@ -19,7 +21,7 @@ public class SerieController : ControllerBase
     }
     // configurar el tema de las credenciales para subir imagenes 
     [HttpPost]
-    public async Task<IActionResult> AgregarSerie([FromForm] AgregarSerieCommand command)
+    public async Task<IActionResult> AgregarSerie([FromForm] AddSerieCommand command)
     {
         var serieId = await _mediator.Send(command);
         return Ok(serieId);
@@ -28,7 +30,7 @@ public class SerieController : ControllerBase
     [HttpGet]
     public async Task<IActionResult> ConsultarSeries()
     {
-        var seriesReponse = await _mediator.Send(new ObtenerSeriesQuery());
+        var seriesReponse = await _mediator.Send(new GetSeriesQuery());
         return Ok(seriesReponse);
     }
 }

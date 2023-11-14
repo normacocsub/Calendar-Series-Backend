@@ -1,35 +1,30 @@
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Aplication.Querys;
 using Domain.Entity;
 using Aplication.DTOs;
-using Infrastructure.Data.Repositories;
+using Infrastructure.Data.Repositories.Interfaces;
 
 namespace Aplication.Handlers;
 
-public class ConsultarSeriesHandler : IRequestHandler<ObtenerSeriesQuery, List<SerieDTO>>
+public class SearchSeriesHandler : IRequestHandler<GetSeriesQuery, List<SerieDTO>>
 {
     private readonly ISerieRepository _serieRepository;
 
-    public ConsultarSeriesHandler(ISerieRepository serieRepository)
+    public SearchSeriesHandler(ISerieRepository serieRepository)
     {
         _serieRepository = serieRepository;
     }
 
     public async Task<List<SerieDTO>> Handle(
-        ObtenerSeriesQuery query,
+        GetSeriesQuery query,
         CancellationToken cancellationToken
     )
     {
         var serieResponse = await _serieRepository.ConsultarSeries();
-        return serieResponse.Select(serie => ConvertToSerieDTO(serie)).ToList();
+        return serieResponse.Select(serie => ConvertToSerieDto(serie)).ToList();
     }
 
-    private SerieDTO ConvertToSerieDTO(Serie serie)
+    private static SerieDTO ConvertToSerieDto(Serie serie)
     {
         return new SerieDTO
         {

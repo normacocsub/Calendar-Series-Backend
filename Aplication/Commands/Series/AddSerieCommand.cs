@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace Aplication.Commands;
 
-public class AgregarSerieCommand : IRequest<int>
+public class AddSerieCommand : IRequest<int>
 {
     public required string Nombre { get; set; }
     public IFormFile? Imagen { get; set; }
